@@ -5,29 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Resume — G.Bhavyanand Reddy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --primary: #111827;
-    --accent: #2563eb;
-    --muted: #4b5563;
-    --light-muted: #9ca3af;
-    --line: #e5e7eb;
-    --bg: #ffffff;
+    --primary: #0F172A;
+    --primary-light: #1E293B;
+    --accent: #2563EB;
+    --accent-dark: #1D4ED8;
+    --accent-light: #EFF6FF;
+    --accent-border: #BFDBFE;
+    --teal: #0D9488;
+    --teal-light: #F0FDFA;
+    --text: #334155;
+    --text-muted: #64748B;
+    --line: #E2E8F0;
+    --bg-card: #F8FAFC;
+    --white: #FFFFFF;
   }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  
   body {
-    background-color: #f3f4f6;
-    color: var(--primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.45;
-    font-size: 13.5px;
-    padding: 30px 16px;
+    background-color: #E2E8F0;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 11.8px;
+    line-height: 1.48;
+    padding: 24px 12px;
     -webkit-font-smoothing: antialiased;
   }
+
+  /* Toolbar */
   .controls-bar {
-    max-width: 820px;
-    margin: 0 auto 20px;
+    max-width: 860px;
+    margin: 0 auto 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,217 +47,356 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 9px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 18px;
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
-    transition: all .2s;
+    transition: all .15s ease;
   }
   .back-btn {
-    background: #ffffff;
-    color: #374151;
+    background: var(--white);
+    color: var(--primary);
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+  .back-btn:hover { background: #F1F5F9; border-color: #CBD5E1; }
+  .btn-group { display: flex; gap: 10px; }
+  .download-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    box-shadow: 0 2px 4px rgba(37,99,235,0.25);
+  }
+  .download-btn:hover { background: var(--accent-dark); }
+  .print-btn {
+    background: var(--white);
+    color: var(--primary);
     border: 1px solid var(--line);
   }
-  .back-btn:hover { background: #f9fafb; border-color: #d1d5db; }
-  .print-btn {
-    background: var(--accent);
-    color: #ffffff;
-    border: none;
-  }
-  .print-btn:hover { background: #1d4ed8; }
+  .print-btn:hover { background: #F1F5F9; }
 
-  .page {
-    background: var(--bg);
-    max-width: 820px;
+  /* Resume Canvas (A4 Optimized) */
+  .resume-sheet {
+    background: var(--white);
+    max-width: 860px;
     margin: 0 auto;
-    padding: 48px 52px 42px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border-radius: 4px;
-    min-height: 1060px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 34px 38px 30px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    border-radius: 8px;
+    position: relative;
   }
 
-  /* Header */
-  .resume-header h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: #0f172a;
-    margin-bottom: 5px;
-  }
-  .resume-header .subtitle {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-
-  /* Contact Strip */
-  .contact-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    padding: 12px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 22px;
-    gap: 12px;
-  }
-  .contact-col span {
-    display: block;
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-  }
-  .contact-col a, .contact-col p {
-    font-size: 12px;
-    color: #1e293b;
-    text-decoration: none;
-    font-weight: 500;
-    word-break: break-word;
-  }
-  .contact-col a:hover { color: var(--accent); text-decoration: underline; }
-
-  /* Sections */
-  .section-row {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 24px;
-    margin-bottom: 20px;
-  }
-  .sec-label {
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding-top: 2px;
-  }
-  .sec-body {
-    font-size: 12.8px;
-    color: #334155;
-    line-height: 1.52;
-  }
-
-  .edu-row {
+  /* Header Section */
+  .resume-header {
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
-  .edu-title { font-weight: 600; color: #0f172a; font-size: 13.5px; }
-  .edu-inst { color: #64748b; font-size: 12.5px; margin-top: 2px; }
-  .edu-status { font-size: 11.5px; color: var(--accent); font-weight: 600; text-align: right; }
+  .header-left h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--primary);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .header-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--accent-light);
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+  .header-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: var(--primary-light);
+    font-weight: 500;
+    transition: color .15s;
+  }
+  .contact-item:hover { color: var(--accent); }
+  .contact-item svg { width: 12px; height: 12px; color: var(--accent); flex-shrink: 0; }
 
-  .exp-item { margin-bottom: 16px; }
-  .exp-item:last-child { margin-bottom: 0; }
-  .exp-top {
+  /* 2-Column Asymmetric Grid */
+  .resume-body {
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 22px;
+  }
+
+  /* Section Styles */
+  .sec-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .sec-heading::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+  .sec-heading-accent { color: var(--accent); }
+
+  /* Profile Card */
+  .profile-box {
+    background: #F8FAFC;
+    border-left: 3px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    font-size: 11.5px;
+    color: #334155;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  /* Experience Cards */
+  .exp-block {
+    margin-bottom: 14px;
+  }
+  .exp-block:last-child { margin-bottom: 0; }
+  .exp-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: 2px;
   }
-  .exp-title { font-weight: 600; color: #0f172a; font-size: 13.5px; }
-  .exp-status { font-size: 11.5px; color: var(--accent); font-weight: 600; }
-  .exp-sub { font-size: 11.5px; color: #64748b; font-weight: 500; margin-bottom: 4px; }
-  .exp-desc { color: #334155; font-size: 12.5px; line-height: 1.48; }
-
-  /* Projects 2-column Grid */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 22px;
-  }
-  .project-box h4 {
+  .exp-role {
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  .exp-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
     font-weight: 600;
-    color: #0f172a;
-    margin-bottom: 3px;
+    color: var(--teal);
+    background: var(--teal-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
   }
-  .project-box p {
-    font-size: 12px;
-    color: #475569;
-    line-height: 1.42;
-  }
-
-  /* Technical Skills Table */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 110px 1fr;
-    gap: 8px 16px;
-    font-size: 12.3px;
-  }
-  .skill-cat {
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--accent);
     font-weight: 600;
-    color: #0f172a;
+    margin-bottom: 4px;
   }
-  .skill-items {
+  .exp-desc {
     color: #475569;
+    font-size: 11.3px;
     line-height: 1.45;
   }
 
-  /* Achievements */
-  .ach-grid {
+  /* Project Grid in Main Column */
+  .project-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 6px 20px;
+    gap: 10px;
+  }
+  .proj-card {
+    background: #F8FAFC;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 9px 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .proj-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.8px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .proj-desc {
+    font-size: 10.6px;
+    color: #64748B;
+    line-height: 1.38;
+    margin-bottom: 6px;
+  }
+  .proj-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .stack-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.8px;
+    font-weight: 500;
+    background: #E2E8F0;
+    color: #1E293B;
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* Aside Column: Education */
+  .edu-box {
+    background: #F8FAFC;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+  }
+  .edu-deg {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
     font-size: 12px;
-    color: #334155;
+    color: var(--primary);
+    line-height: 1.3;
+  }
+  .edu-inst {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+  .edu-sub {
+    font-size: 10.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Aside Column: Skills Cluster */
+  .skill-group {
+    margin-bottom: 12px;
+  }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 5px;
+  }
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .skill-pill {
+    font-size: 10.2px;
+    font-weight: 500;
+    color: #1E293B;
+    background: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .skill-pill.highlight {
+    background: var(--accent-light);
+    color: var(--accent);
+    border-color: var(--accent-border);
+    font-weight: 600;
+  }
+
+  /* Aside Column: Achievements */
+  .ach-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
   .ach-item {
+    font-size: 10.5px;
+    color: #475569;
+    line-height: 1.35;
     position: relative;
-    padding-left: 14px;
-    line-height: 1.38;
+    padding-left: 12px;
   }
   .ach-item::before {
-    content: '•';
+    content: '▪';
     color: var(--accent);
     position: absolute;
     left: 0;
-    font-weight: bold;
+    font-size: 11px;
+    top: -1px;
+  }
+  .ach-item strong {
+    color: var(--primary);
+    font-weight: 600;
   }
 
   /* Footer */
   .resume-footer {
     border-top: 1px solid var(--line);
-    padding-top: 14px;
     margin-top: 16px;
+    padding-top: 10px;
     display: flex;
     justify-content: space-between;
-    font-size: 9.5px;
-    font-weight: 600;
-    color: #94a3b8;
-    letter-spacing: 0.08em;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: #94A3B8;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
+  /* Print Strict One-Page A4 Rules */
   @media print {
-    body { background: #ffffff; padding: 0; }
-    .controls-bar { display: none; }
-    .page {
-      box-shadow: none;
-      padding: 36px 40px 30px;
-      max-width: 100%;
-      min-height: 100vh;
+    body { background: #FFFFFF; padding: 0; }
+    .controls-bar { display: none !important; }
+    .resume-sheet {
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      max-width: 100% !important;
+      padding: 24px 28px 20px !important;
+      margin: 0 !important;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 8mm 6mm;
     }
     a { text-decoration: none; color: inherit; }
   }
 
-  @media (max-width: 700px) {
-    .page { padding: 28px 20px; }
-    .section-row { grid-template-columns: 1fr; gap: 8px; }
-    .contact-strip { grid-template-columns: 1fr 1fr; }
-    .projects-grid, .ach-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
+  @media (max-width: 740px) {
+    .resume-header { flex-direction: column; gap: 10px; }
+    .header-contacts { align-items: flex-start; }
+    .resume-body { grid-template-columns: 1fr; }
+    .project-list { grid-template-columns: 1fr; }
+    .resume-sheet { padding: 24px 18px; }
   }
 </style>
 </head>
@@ -254,170 +404,265 @@
 
 <div class="controls-bar">
   <a href="index.html" class="back-btn">← Back to Portfolio</a>
-  <div style="display:flex; gap:10px;">
-    <a href="G_Bhavyanand_Reddy_Resume.pdf" download="G_Bhavyanand_Reddy_Resume.pdf" class="print-btn" style="background:#059669; text-decoration:none;">⬇️ Download PDF File</a>
-    <button onclick="window.print()" class="print-btn">🖨️ Print / Save as PDF</button>
+  <div class="btn-group">
+    <a href="G_Bhavyanand_Reddy_Resume.pdf" download="G_Bhavyanand_Reddy_Resume.pdf" class="download-btn">⬇️ Download PDF</a>
+    <button onclick="window.print()" class="print-btn">🖨️ Print / Save</button>
   </div>
 </div>
 
-<div class="page">
-  <div>
-    <!-- Header -->
-    <header class="resume-header">
-      <h1>G.Bhavyanand Reddy</h1>
-      <div class="subtitle">AI / ML · SOFTWARE ENGINEERING · LLM SYSTEMS</div>
-    </header>
-
-    <!-- Contact Strip -->
-    <div class="contact-strip">
-      <div class="contact-col">
-        <span>Phone</span>
-        <a href="tel:+918074188220">+91 80741 88220</a>
-      </div>
-      <div class="contact-col">
-        <span>Portfolio</span>
-        <a href="https://guddetibhavyanandreddy-create.github.io/portfolio/" target="_blank" rel="noopener">bhavyanand.portfolio</a>
-      </div>
-      <div class="contact-col">
-        <span>GitHub</span>
-        <a href="https://github.com/guddetibhavyanandreddy-create" target="_blank" rel="noopener">guddetibhavyanandreddy-create</a>
-      </div>
-      <div class="contact-col">
-        <span>Email</span>
-        <a href="mailto:guddetibhavyanandreddy@gmail.com">guddetibhavyanandreddy@gmail.com</a>
-      </div>
+<div class="resume-sheet">
+  <!-- Header -->
+  <header class="resume-header">
+    <div class="header-left">
+      <h1>G. Bhavyanand Reddy</h1>
+      <div class="header-tagline">AI Systems &amp; LLM Engineer · B.Tech CSE (AI)</div>
     </div>
-
-    <!-- Profile -->
-    <div class="section-row">
-      <div class="sec-label">Profile</div>
-      <div class="sec-body">
-        Student engineer and founder building intelligent systems, autonomous AI agents, and practical LLM applications. Currently pursuing B.Tech in Computer Science &amp; Engineering (AI) at Malla Reddy Vishwavidyapeeth × NIAT, with hands-on experience across LLMs, multi-agent architectures, full-stack software, and client delivery.
-      </div>
+    <div class="header-contacts">
+      <a href="tel:+918074188220" class="contact-item">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z"/></svg>
+        +91 80741 88220
+      </a>
+      <a href="mailto:guddetibhavyanandreddy@gmail.com" class="contact-item">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        guddetibhavyanandreddy@gmail.com
+      </a>
+      <a href="https://github.com/guddetibhavyanandreddy-create" target="_blank" rel="noopener" class="contact-item">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        github.com/guddetibhavyanandreddy-create
+      </a>
+      <span class="contact-item" style="color:var(--text-muted)">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Hyderabad, India
+      </span>
     </div>
+  </header>
 
-    <!-- Education -->
-    <div class="section-row">
-      <div class="sec-label">Education</div>
-      <div class="sec-body">
-        <div class="edu-row">
-          <div>
-            <div class="edu-title">B.Tech — Computer Science &amp; Engineering (AI)</div>
-            <div class="edu-inst">Malla Reddy Vishwavidyapeeth × NIAT</div>
-          </div>
-          <div class="edu-status">2nd Year · Ongoing</div>
-        </div>
+  <!-- Main Body Layout -->
+  <div class="resume-body">
+    
+    <!-- LEFT / PRIMARY COLUMN -->
+    <div class="col-main">
+      
+      <!-- Executive Summary -->
+      <div class="profile-box">
+        <strong>Student Engineer &amp; Founder</strong> building autonomous AI agent workflows and production-grade LLM applications. Currently pursuing B.Tech in CSE (AI) at <strong>Malla Reddy Vishwavidyapeeth × NIAT</strong> with deep hands-on expertise in multi-agent orchestration, contextual retrieval (RAG), and client software delivery.
       </div>
-    </div>
 
-    <!-- Experience -->
-    <div class="section-row">
-      <div class="sec-label">Experience</div>
-      <div class="sec-body">
-        <div class="exp-item">
-          <div class="exp-top">
-            <div class="exp-title">Founder — Smart Connect AI</div>
-            <div class="exp-status">Ongoing</div>
+      <!-- Experience Section -->
+      <section style="margin-bottom: 16px;">
+        <h2 class="sec-heading"><span class="sec-heading-accent">01.</span> Practical Experience</h2>
+        
+        <!-- Smart Connect AI -->
+        <div class="exp-block">
+          <div class="exp-header">
+            <span class="exp-role">Founder &amp; Lead Architect</span>
+            <span class="exp-badge">Startup · Ongoing</span>
           </div>
-          <div class="exp-sub">Startup · Intelligent Multi-Agent &amp; LLM Platform</div>
-          <div class="exp-desc">
-            Built and launched Smart Connect AI, an intelligent multi-agent platform. Designed system architecture, developed the full-stack application, and integrated AI-powered document analysis, contextual retrieval, and semantic matching for autonomous workflow automation.
+          <div class="exp-meta">
+            <span>Smart Connect AI</span>
+            <span style="color:var(--text-muted); font-weight:normal;">2026 — Present</span>
           </div>
+          <p class="exp-desc">
+            Architected and launched an intelligent multi-agent platform powered by modern LLMs. Designed autonomous agent workflows, integrated semantic knowledge retrieval (RAG), and deployed tool-invocation pipelines automating client engagement and data tasks.
+          </p>
         </div>
 
-        <div class="exp-item">
-          <div class="exp-top">
-            <div class="exp-title">Client Project — RK Deep Cleaning Services</div>
-            <div class="exp-status">Delivered</div>
+        <!-- RK Deep Cleaning Services -->
+        <div class="exp-block">
+          <div class="exp-header">
+            <span class="exp-role">Lead Web Engineer</span>
+            <span class="exp-badge" style="color:var(--accent); background:var(--accent-light);">Client Delivery</span>
           </div>
-          <div class="exp-sub">Client Engagement · Full-Stack Software Delivery</div>
-          <div class="exp-desc">
-            Commissioned to design and develop software for RK Deep Cleaning Services. Managed client requirements, mobile-first responsive architecture, interactive service estimation workflows, and end-to-end delivery independently.
+          <div class="exp-meta">
+            <span>RK Deep Cleaning Services</span>
+            <span style="color:var(--text-muted); font-weight:normal;">2025 — 2026</span>
           </div>
+          <p class="exp-desc">
+            Commissioned to engineer and deploy the official business web platform. Designed mobile-first responsive architecture, interactive service estimation algorithms, fast asset delivery, and managed client delivery end-to-end to custom domain production.
+          </p>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Selected Projects -->
-    <div class="section-row">
-      <div class="sec-label">Selected Projects</div>
-      <div class="sec-body">
-        <div class="projects-grid">
+      <!-- Selected Projects -->
+      <section>
+        <h2 class="sec-heading"><span class="sec-heading-accent">02.</span> Selected Projects</h2>
+        <div class="project-list">
           
-          <div class="project-box">
-            <h4>Smart Connect AI</h4>
-            <p>Intelligent multi-agent platform with context-aware semantic retrieval, automated workflow routing, and conversational task management.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>Smart Connect AI</span>
+                <span style="color:var(--accent); font-size:10px;">★ Flagship</span>
+              </div>
+              <p class="proj-desc">Multi-agent system with context-aware semantic retrieval, automated workflow routing, and session memory.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">LLMs</span>
+              <span class="stack-chip">Agents</span>
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">RAG</span>
+            </div>
           </div>
 
-          <div class="project-box">
-            <h4>RK Deep Cleaning Services</h4>
-            <p>Commercial web portal featuring structured service booking, dynamic quote calculations, and optimized responsive performance.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>RK Deep Cleaning</span>
+                <span style="color:var(--teal); font-size:10px;">● Live</span>
+              </div>
+              <p class="proj-desc">Full commercial booking platform featuring dynamic quote estimation and high-performance UI delivery.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">HTML/CSS</span>
+              <span class="stack-chip">React</span>
+              <span class="stack-chip">Vite</span>
+              <span class="stack-chip">Tailwind</span>
+            </div>
           </div>
 
-          <div class="project-box">
-            <h4>Aura AI</h4>
-            <p>Conversational AI application built on modern LLM frameworks with context-aware session management and custom prompting persona.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>Aura AI</span>
+              </div>
+              <p class="proj-desc">Context-aware conversational AI assistant featuring adaptive system prompting and session state management.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">LLM Systems</span>
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Prompt Eng</span>
+            </div>
           </div>
 
-          <div class="project-box">
-            <h4>TruthLens</h4>
-            <p>Media credibility analysis tool using AI-assisted fact-checking heuristics and source reliability evaluation.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>TruthLens</span>
+              </div>
+              <p class="proj-desc">AI-assisted media credibility analysis tool evaluating source reliability with semantic validation.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">NLP</span>
+              <span class="stack-chip">Vector Search</span>
+              <span class="stack-chip">Python</span>
+            </div>
           </div>
 
-          <div class="project-box">
-            <h4>Audit Flow</h4>
-            <p>Automated workflow tool for structured data auditing, schema validation, and audit trail generation.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>SIH Hackathon Project</span>
+              </div>
+              <p class="proj-desc">National hackathon engineering prototype tackling real-world problem statements under high pressure.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">Architecture</span>
+              <span class="stack-chip">Team Lead</span>
+              <span class="stack-chip">AI</span>
+            </div>
           </div>
 
-          <div class="project-box">
-            <h4>SIH Hackathon Project</h4>
-            <p>National-level engineering hackathon project tackling real-world problem statements from ideation to working prototype under tight deadlines.</p>
+          <div class="proj-card">
+            <div>
+              <div class="proj-title">
+                <span>Audit Flow</span>
+              </div>
+              <p class="proj-desc">Automated workflow tool for structured data validation, schema compliance, and audit trail generation.</p>
+            </div>
+            <div class="proj-stack">
+              <span class="stack-chip">SQL</span>
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Automation</span>
+            </div>
           </div>
 
         </div>
-      </div>
+      </section>
+
     </div>
 
-    <!-- Technical Skills -->
-    <div class="section-row">
-      <div class="sec-label">Technical Skills</div>
-      <div class="sec-body">
-        <div class="skills-grid">
-          <div class="skill-cat">AI / ML</div>
-          <div class="skill-items">Generative AI · LLM Systems · Text Embeddings · Semantic Search · Vector Search · Computer Vision · RAG · Autonomous Agents · Prompt Engineering</div>
-
-          <div class="skill-cat">Software Eng.</div>
-          <div class="skill-items">Full-Stack Development · API Development · Automation · React · Next.js · TypeScript · Python · C++ · HTML / CSS</div>
-
-          <div class="skill-cat">Databases &amp; Tools</div>
-          <div class="skill-items">SQL · MongoDB · Git · GitHub · Vite · Tailwind CSS · Netlify · FastAPI</div>
+    <!-- RIGHT / ASIDE COLUMN -->
+    <div class="col-aside">
+      
+      <!-- Education -->
+      <section style="margin-bottom: 16px;">
+        <h2 class="sec-heading"><span class="sec-heading-accent">03.</span> Education</h2>
+        <div class="edu-box">
+          <div class="edu-deg">B.Tech — CSE (Artificial Intelligence)</div>
+          <div class="edu-inst">Malla Reddy Vishwavidyapeeth × NIAT</div>
+          <div class="edu-sub">2nd Year · Ongoing (Hyderabad, India)</div>
         </div>
-      </div>
+      </section>
+
+      <!-- Technical Skills Cluster -->
+      <section style="margin-bottom: 16px;">
+        <h2 class="sec-heading"><span class="sec-heading-accent">04.</span> Technical Skills</h2>
+        
+        <div class="skill-group">
+          <div class="skill-group-title">AI &amp; LLM Systems</div>
+          <div class="skill-chips">
+            <span class="skill-pill highlight">LLM Systems (85%)</span>
+            <span class="skill-pill highlight">AI Agents (85%)</span>
+            <span class="skill-pill">Generative AI</span>
+            <span class="skill-pill">Text Embeddings</span>
+            <span class="skill-pill">Semantic Search</span>
+            <span class="skill-pill">Vector Search</span>
+            <span class="skill-pill">RAG</span>
+            <span class="skill-pill">Prompt Engineering</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Software Engineering</div>
+          <div class="skill-chips">
+            <span class="skill-pill highlight">HTML / CSS (90%)</span>
+            <span class="skill-pill highlight">C++ (50%)</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Next.js</span>
+            <span class="skill-pill">API Development</span>
+            <span class="skill-pill">Full-Stack</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-title">Databases &amp; Tooling</div>
+          <div class="skill-chips">
+            <span class="skill-pill">SQL (75%)</span>
+            <span class="skill-pill">MongoDB (70%)</span>
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">Vite</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">Netlify</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Achievements & Learning -->
+      <section>
+        <h2 class="sec-heading"><span class="sec-heading-accent">05.</span> Achievements &amp; Honors</h2>
+        <ul class="ach-list">
+          <li class="ach-item"><strong>Adobe University Hackathon</strong> — 2026 participant</li>
+          <li class="ach-item"><strong>OpenAI Academy × NxtWave</strong> — Regional Buildathon (2025)</li>
+          <li class="ach-item"><strong>Maker Conclave 2026</strong> — Hardware &amp; AI innovation</li>
+          <li class="ach-item"><strong>Masterclass: Vector Search</strong> — Delivered by Amazon Applied Scientist</li>
+          <li class="ach-item"><strong>Masterclass: Text Embeddings</strong> — Delivered by Flipkart Data Scientist</li>
+          <li class="ach-item"><strong>Generative AI Mastery</strong> — NIAT Cohort</li>
+          <li class="ach-item"><strong>Base44 Workshop</strong> — Hands-on app building</li>
+          <li class="ach-item"><strong>Robotic Arms 101</strong> — NIAT Robotics Team</li>
+          <li class="ach-item"><strong>Smart India Hackathon (SIH)</strong> — National Participant</li>
+        </ul>
+      </section>
+
     </div>
 
-    <!-- Achievements & Technical Learning -->
-    <div class="section-row" style="margin-bottom: 0;">
-      <div class="sec-label">Achievements &amp; Learning</div>
-      <div class="sec-body">
-        <div class="ach-grid">
-          <div class="ach-item">Adobe University Hackathon — 2026</div>
-          <div class="ach-item">OpenAI Academy × NxtWave Regional Buildathon — Telangana — 2025</div>
-          <div class="ach-item">Maker Conclave — 2026</div>
-          <div class="ach-item">Generative AI Mastery Workshop — NIAT</div>
-          <div class="ach-item">Applying Text Embeddings in LLM Systems (Flipkart)</div>
-          <div class="ach-item">Vector Search in Practice: Semantic Search with LLMs (Amazon)</div>
-          <div class="ach-item">Base44 Hands-On App Building Workshop</div>
-          <div class="ach-item">Robotic Arms 101</div>
-          <div class="ach-item">Smart India Hackathon (SIH) Participant</div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Footer -->
   <footer class="resume-footer">
-    <span>G.Bhavyanand Reddy</span>
-    <span>AI / ML · Software Engineering · LLM Systems</span>
+    <span>G. Bhavyanand Reddy · Portfolio &amp; Resume</span>
+    <span>MRV × NIAT · Hyderabad</span>
   </footer>
 </div>
 
